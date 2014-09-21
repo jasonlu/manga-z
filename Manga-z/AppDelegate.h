@@ -7,9 +7,21 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ZipFile.h"
+#import "FileInZipInfo.h"
+#import "ZipReadStream.h"
+#import "DropZone.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+    NSString *_currentFilepath;
+    NSTextField *_filepathLabel;
+}
 
 
+@property (copy) NSString  *_currentFilepath;
+@property (strong) IBOutlet NSTextField *_filepathLabel;
+
+
+- (BOOL)openFile:(NSString *) filePath;
 @end
 
