@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F038258C19CE742600D75253 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F038258B19CE742600D75253 /* main.m */; };
+		F038258F19CE742600D75253 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F038258E19CE742600D75253 /* AppDelegate.m */; };
+		F038259119CE742600D75253 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F038259019CE742600D75253 /* Images.xcassets */; };
+		F038259419CE742600D75253 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F038259219CE742600D75253 /* MainMenu.xib */; };
+		F03825A019CE742600D75253 /* Manga_zTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F038259F19CE742600D75253 /* Manga_zTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F038259A19CE742600D75253 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F038257E19CE742600D75253 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F038258519CE742600D75253;
+			remoteInfo = "Manga-z";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F038258619CE742600D75253 /* Manga-z.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Manga-z.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F038258A19CE742600D75253 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F038258B19CE742600D75253 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F038258D19CE742600D75253 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F038258E19CE742600D75253 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F038259019CE742600D75253 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F038259319CE742600D75253 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F038259919CE742600D75253 /* Manga-zTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Manga-zTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F038259E19CE742600D75253 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F038259F19CE742600D75253 /* Manga_zTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Manga_zTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F038258319CE742600D75253 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F038259619CE742600D75253 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F038257D19CE742600D75253 = {
+			isa = PBXGroup;
+			children = (
+				F038258819CE742600D75253 /* Manga-z */,
+				F038259C19CE742600D75253 /* Manga-zTests */,
+				F038258719CE742600D75253 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F038258719CE742600D75253 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F038258619CE742600D75253 /* Manga-z.app */,
+				F038259919CE742600D75253 /* Manga-zTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F038258819CE742600D75253 /* Manga-z */ = {
+			isa = PBXGroup;
+			children = (
+				F038258D19CE742600D75253 /* AppDelegate.h */,
+				F038258E19CE742600D75253 /* AppDelegate.m */,
+				F038259019CE742600D75253 /* Images.xcassets */,
+				F038259219CE742600D75253 /* MainMenu.xib */,
+				F038258919CE742600D75253 /* Supporting Files */,
+			);
+			path = "Manga-z";
+			sourceTree = "<group>";
+		};
+		F038258919CE742600D75253 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F038258A19CE742600D75253 /* Info.plist */,
+				F038258B19CE742600D75253 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F038259C19CE742600D75253 /* Manga-zTests */ = {
+			isa = PBXGroup;
+			children = (
+				F038259F19CE742600D75253 /* Manga_zTests.m */,
+				F038259D19CE742600D75253 /* Supporting Files */,
+			);
+			path = "Manga-zTests";
+			sourceTree = "<group>";
+		};
+		F038259D19CE742600D75253 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F038259E19CE742600D75253 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F038258519CE742600D75253 /* Manga-z */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F03825A319CE742600D75253 /* Build configuration list for PBXNativeTarget "Manga-z" */;
+			buildPhases = (
+				F038258219CE742600D75253 /* Sources */,
+				F038258319CE742600D75253 /* Frameworks */,
+				F038258419CE742600D75253 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Manga-z";
+			productName = "Manga-z";
+			productReference = F038258619CE742600D75253 /* Manga-z.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F038259819CE742600D75253 /* Manga-zTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F03825A619CE742600D75253 /* Build configuration list for PBXNativeTarget "Manga-zTests" */;
+			buildPhases = (
+				F038259519CE742600D75253 /* Sources */,
+				F038259619CE742600D75253 /* Frameworks */,
+				F038259719CE742600D75253 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F038259B19CE742600D75253 /* PBXTargetDependency */,
+			);
+			name = "Manga-zTests";
+			productName = "Manga-zTests";
+			productReference = F038259919CE742600D75253 /* Manga-zTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F038257E19CE742600D75253 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Jason Lu";
+				TargetAttributes = {
+					F038258519CE742600D75253 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					F038259819CE742600D75253 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = F038258519CE742600D75253;
+					};
+				};
+			};
+			buildConfigurationList = F038258119CE742600D75253 /* Build configuration list for PBXProject "Manga-z" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F038257D19CE742600D75253;
+			productRefGroup = F038258719CE742600D75253 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F038258519CE742600D75253 /* Manga-z */,
+				F038259819CE742600D75253 /* Manga-zTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F038258419CE742600D75253 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F038259119CE742600D75253 /* Images.xcassets in Resources */,
+				F038259419CE742600D75253 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F038259719CE742600D75253 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F038258219CE742600D75253 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F038258F19CE742600D75253 /* AppDelegate.m in Sources */,
+				F038258C19CE742600D75253 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F038259519CE742600D75253 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F03825A019CE742600D75253 /* Manga_zTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F038259B19CE742600D75253 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F038258519CE742600D75253 /* Manga-z */;
+			targetProxy = F038259A19CE742600D75253 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F038259219CE742600D75253 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F038259319CE742600D75253 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F03825A119CE742600D75253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F03825A219CE742600D75253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F03825A419CE742600D75253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Manga-z/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F03825A519CE742600D75253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Manga-z/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F03825A719CE742600D75253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Manga-zTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Manga-z.app/Contents/MacOS/Manga-z";
+			};
+			name = Debug;
+		};
+		F03825A819CE742600D75253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Manga-zTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Manga-z.app/Contents/MacOS/Manga-z";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F038258119CE742600D75253 /* Build configuration list for PBXProject "Manga-z" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F03825A119CE742600D75253 /* Debug */,
+				F03825A219CE742600D75253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F03825A319CE742600D75253 /* Build configuration list for PBXNativeTarget "Manga-z" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F03825A419CE742600D75253 /* Debug */,
+				F03825A519CE742600D75253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F03825A619CE742600D75253 /* Build configuration list for PBXNativeTarget "Manga-zTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F03825A719CE742600D75253 /* Debug */,
+				F03825A819CE742600D75253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F038257E19CE742600D75253 /* Project object */;
+}
