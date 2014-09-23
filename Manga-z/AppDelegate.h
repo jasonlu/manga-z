@@ -15,10 +15,9 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     NSString *_currentFilepath;
     NSTextField *_filepathLabel;
+
 }
-
-
-@property (copy) NSString  *_currentFilepath;
+@property (strong) IBOutlet DropZone *_dropZone;
 @property (strong) IBOutlet NSTextField *_filepathLabel;
 
 

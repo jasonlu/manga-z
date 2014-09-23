@@ -11,8 +11,8 @@
 
 @interface AppDelegate ()
 
+@property (copy) NSString  *_currentFilepath;
 @property (weak) IBOutlet NSWindow *window;
-@property (strong) IBOutlet DropZone *_dropZone;
 
 @end
 
@@ -27,6 +27,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    NSImage *img = [[NSImage alloc] initWithContentsOfFile:@"/Volumes/HDD/Pictures/Wallpapers/official-os-x-yosemite-hd-wallpapers.jpg"];
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects: [NSArray arrayWithObjects:img, nil] forKeys: [NSArray arrayWithObjects:@"image", nil]];
+    
+    [_dropZone updateBackgroundWithImage:img];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"updateBackground" object:img userInfo:userInfo];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -48,7 +53,7 @@
     int bytesRead= [read readDataWithBuffer:data];
     
     [read finishedReading];
-    [_dropZone drawImage: data];
+//    [_dropZone drawImage: data];
     
     
     

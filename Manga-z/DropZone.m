@@ -32,6 +32,7 @@ NSImage* _cover;
     
     [self registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
     NSLog(@"Drop init...");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateBackground:) name:@"updateBackground" object:nil];
     return self;
 }
 
@@ -89,20 +90,108 @@ NSImage* _cover;
 } // end concludeDragOperation
 
 
-- (BOOL)drawImage:(NSData*) data {
+- (BOOL)updateBackgroundWithData:(NSData*) data {
     _cover = [[NSImage alloc] initWithData:data];
     [self setNeedsDisplay: YES];
     return YES;
 }
 
+- (BOOL)updateBackgroundWithImage:(NSImage*) image {
+    _cover = image;
+    [self setNeedsDisplay: YES];
+    return YES;
+}
 
-- (BOOL)openFile:(NSString *) filePath {
+- (BOOL)updateBackground:(NSNotification*)notice {
+    _cover = notice.userInfo[@"image"];
+    [self setNeedsDisplay: YES];
+    return YES;
+
+}
+
+
+- (BOOL)updateBackground {
+    NSImage *img = [[NSImage alloc] initWithContentsOfFile:@"/Volumes/HDD/Pictures/Wallpapers/official-os-x-yosemite-hd-wallpapers.jpg"];
+    _cover = img;
+    [self setNeedsDisplay: YES];
+    return YES;
+}
+
+- (NSImage*) resizeImage: (NSImage *) orgImage to: (NSInteger) toSize{
+    NSSize newSize;
+    float w = [orgImage size].width;
+    float h = [orgImage size].height;
+    if(w > h) {
+        newSize.width = toSize;
+        newSize.height = toSize * (h / w);
+    } else {
+        newSize.height = toSize;
+        newSize.width = toSize * (w / h);
+    }
+    NSImage *sourceImage = orgImage;
+    // [sourceImage setScalesWhenResized:YES];
     
-    NSLog(@"Opening file: %@", filePath);
-    
-    ZipFile *unzipFile= [[ZipFile alloc] initWithFileName:filePath
+    // Report an error if the source isn't a valid image
+    if (![sourceImage isValid]){
+        NSLog(@"Invalid Image");
+    } else {
+        NSImage *newImage = [[NSImage alloc] initWithSize: newSize];
+        [newImage lockFocus];
+        [sourceImage setSize: newSize];
+        [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+        [sourceImage drawAtPoint:NSZeroPoint fromRect:CGRectMake(0, 0, newSize.width, newSize.height) operation:NSCompositeCopy fraction:1.0];
+        [newImage unlockFocus];
+        NSLog(@"Image resized!");
+        return newImage;
+    }
+    return nil;
+}
+
+
+- (BOOL) saveImageFile: (NSImage *)image atPath: (NSString *) filepath{
+    [image lockFocus];
+    NSBitmapImageRep *tImgRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0.0, 0.0, [image size].width, [image size].height)] ;
+    NSData *tData = [tImgRep representationUsingType: NSJPEGFileType properties: nil];
+    [image unlockFocus];
+    NSLog(@"tNewFilepath: %@", filepath);
+    [tData writeToFile: filepath atomically: YES];
+    return YES;
+}
+
+- (BOOL) saveZipFile: (NSString *) dirPath toPath: (NSString *) zipFilepath {
+    return YES;
+}
+
+- (BOOL)openDir: (NSString *) filepath {
+    NSFileManager *fMgr = [[NSFileManager alloc] init];
+    NSError *err = nil;
+    NSArray *dirContents = [fMgr contentsOfDirectoryAtPath:filepath error:&err];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"self ENDSWITH '.jpg' OR self ENDSWITH '.gif' OR self ENDSWITH '.png'"];
+    dirContents = [dirContents filteredArrayUsingPredicate:filter];
+    id sortByNameAsc = ^(NSString *str1, NSString *str2) {
+        return [str1 compare: str2];
+    };
+    dirContents = [dirContents sortedArrayUsingComparator:sortByNameAsc];
+    NSString *coverImagePath = [filepath stringByAppendingPathComponent: [dirContents objectAtIndex:0]];
+    _cover = [[NSImage alloc] initWithContentsOfFile: coverImagePath];
+
+    for(NSString* tFilename in dirContents) {
+        NSLog(@"file in %@:\t %@", filepath, tFilename);
+        NSImage *tOrgImage = nil;
+        NSImage *tNewImage = nil;
+        NSString *tFilepath = [filepath stringByAppendingPathComponent:tFilename];
+        NSString *tNewFilepath = [tFilepath stringByAppendingString:@".new.jpg"];
+        tOrgImage = [[NSImage alloc] initWithContentsOfFile:tFilepath];
+        tNewImage = [self resizeImage: tOrgImage to: 1024];
+        [self saveImageFile: tNewImage atPath: tNewFilepath];
+    }
+    return YES;
+}
+
+- (BOOL)openZip: (NSString *) filepath {
+    ZipFile *unzipFile= [[ZipFile alloc] initWithFileName:filepath
                                                      mode:ZipFileModeUnzip];
-
+    
     NSArray *infos= [unzipFile listFileInZipInfos];
     id sortByNameAsc = ^(FileInZipInfo *obj1, FileInZipInfo *obj2){
         return [obj1.name compare:obj2.name];
@@ -114,37 +203,37 @@ NSImage* _cover;
     [unzipFile locateFileInZip:firstFile];
     ZipReadStream *read= [unzipFile readCurrentFileInZip];
     NSMutableData *data= [[NSMutableData alloc] initWithLength:1024*1024*10];
-
+    
     int bytesRead= [read readDataWithBuffer:data];
     
     [data setLength:bytesRead];
     NSLog(@"bytesRead: %d", bytesRead);
     
     [read finishedReading];
-
+    
     /*
-    NSError *error;
-    NSString *globallyUniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
-    NSString *tempDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:globallyUniqueString];
-    NSURL *tempDirectoryURL = [NSURL fileURLWithPath:tempDirectoryPath isDirectory:YES];
-    NSURL *tempFileURL = [tempDirectoryURL URLByAppendingPathComponent:filename];
-    [[NSFileManager defaultManager] createDirectoryAtURL:tempDirectoryURL withIntermediateDirectories:YES attributes:nil error:&error];
+     NSError *error;
+     NSString *globallyUniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
+     NSString *tempDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:globallyUniqueString];
+     NSURL *tempDirectoryURL = [NSURL fileURLWithPath:tempDirectoryPath isDirectory:YES];
+     NSURL *tempFileURL = [tempDirectoryURL URLByAppendingPathComponent:filename];
+     [[NSFileManager defaultManager] createDirectoryAtURL:tempDirectoryURL withIntermediateDirectories:YES attributes:nil error:&error];
+     
+     
+     tempFileURL = [NSURL URLWithString:@"/Users/aoisama/temp.jpg"];
+     NSString *t = @"/Users/aoisama/temp.jpg";
+     [data writeToFile: t atomically:YES];
+     
+     NSLog(@"tmp: %@", tempFileURL);
+     */
     
-    
-    tempFileURL = [NSURL URLWithString:@"/Users/aoisama/temp.jpg"];
-    NSString *t = @"/Users/aoisama/temp.jpg";
-    [data writeToFile: t atomically:YES];
-    
-    NSLog(@"tmp: %@", tempFileURL);
-    */
-    
-    [self drawImage:data];
+
     return YES;
     
     
-
+    
     for (FileInZipInfo *info in infos) {
-//        NSLog(@"- %@ %@ %d (%d)", info.name, info.date, info.size, info.level);
+        //        NSLog(@"- %@ %@ %d (%d)", info.name, info.date, info.size, info.level);
         // Locate the file in the zip
         [unzipFile locateFileInZip:info.name];
         
@@ -158,6 +247,21 @@ NSImage* _cover;
     
     
     return YES;
+}
+
+- (BOOL)openFile:(NSString *) filepath {
+    
+    NSLog(@"Opening file: %@", filepath);
+    NSFileManager *fMgr = [[NSFileManager alloc] init];
+    BOOL isDir;
+    if (![fMgr fileExistsAtPath:filepath isDirectory:&isDir]) {
+        return NO;
+    }
+    if (isDir) {
+        return [self openDir: filepath];
+    } else {
+        return [self openZip: filepath];
+    }
 }
 
 

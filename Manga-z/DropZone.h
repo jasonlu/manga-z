@@ -7,13 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AppDelegate.h"
+#import "ZipFile.h"
+#import "FileInZipInfo.h"
+#import "ZipReadStream.h"
+@class AppDelegate;
 
 @interface DropZone : NSView
 
-
-- (BOOL)openFile:(NSString *) filePath;
-- (BOOL)drawImage:(NSData*) data;
-
+- (BOOL)openFile:(NSString *) filepath;
+- (BOOL)updateBackgroundWithImage:(NSImage*) image;
 
 @end
